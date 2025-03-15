@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
     const moveSound = document.getElementById('move-sound');
     const overlay = document.getElementById('click-to-enable-sound');
-    const cancelImgContainer = document.getElementById('cancel-img-container'); // Cambia esta línea
-    const closeCancelImgButton = document.getElementById('close-cancel-img'); // Añade esta línea
+    const cancelImgContainer = document.getElementById('cancel-img-container');
+    const closeCancelImgButton = document.getElementById('close-cancel-img');
 
     overlay.addEventListener('click', () => {
         overlay.style.display = 'none';
     });
 
-    noButton.addEventListener('mouseover', () => {
+    const moveNoButton = () => {
         const containerRect = container.getBoundingClientRect();
         const buttonRect = noButton.getBoundingClientRect();
 
@@ -26,7 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
         noButton.style.left = `${newLeft}px`;
 
         createSpamImage();
-    });
+    };
+
+    noButton.addEventListener('mouseover', moveNoButton);
+    noButton.addEventListener('touchstart', moveNoButton);
 
     yesButton.addEventListener('click', () => {
         removeSpamImages();
@@ -37,12 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
     backButton.addEventListener('click', () => {
         infoView.classList.add('hidden');
         mainView.classList.remove('hidden');
-        cancelImgContainer.classList.remove('hidden'); // Cambia esta línea
+        cancelImgContainer.classList.remove('hidden');
     });
 
-    closeCancelImgButton.addEventListener('click', () => { // Añade esta línea
-        cancelImgContainer.classList.add('hidden'); // Añade esta línea
-    }); // Añade esta línea
+    closeCancelImgButton.addEventListener('click', () => {
+        cancelImgContainer.classList.add('hidden');
+    });
 
     function createSpamImage() {
         const img = document.createElement('img');
