@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você quer ir a um encontro comigo?</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container" id="main-view">
+        <div class="card">
+            <h1>Você quer ir a um encontro comigo?</h1>
+            <img src="assets/cola.jpg" alt="Meme divertido" class="meme">
+            <div class="buttons">
+                <button id="yes">Sim</button>
+                <button id="no">Nao</button>
+            </div>
+            <img id="surprise-img" src="assets/no.jpg" alt="Imagen sorpresa" class="hidden">
+        </div>
+    </div>
+    <div class="container hidden" id="info-view">
+        <div class="card">
+            <img src="assets/666f11c1c64b0.r_1718555520920.0-0-1600-800.jpeg" alt="Ubicación 1" class="location-img top-img">
+            <h1>Si quería 🫦
+                <br>
+                El martes veo los ojitos más lindos
+            </h1>
+            <p>Hora: 4:00 PM</p>
+            <p>Lugar: Garden Café by Alelí</p>
+            <p>Dirección: Cl 70a #5-67</p>
+            <p>Regla de etiqueta: Llegar sin ropa es necesario</p>
+            <button id="map" onclick="window.open('https://www.google.com/maps?q=Cl+70a+%235-67', '_blank')">Ver ubicación acá</button>
+            <button id="back">Cancelar Cita</button>
+            <img src="assets/b3ab364f2af0401648131700e7a6a371.jpg" alt="Ubicación 2" class="location-img bottom-img">
+        </div>
+    </div>
+    <div id="click-to-enable-sound" class="overlay">
+        <p>Si voce es bonita haz clic</p>
+    </div>
+    <img id="cancel-img" src="assets/pistola.jpg" alt="Imagen de cancelación" class="hidden"> <!-- Añade esta línea -->
+    <audio id="move-sound" src="assets/pum.mp3"></audio>
+    <script src="js/scripts.js" defer></script>
+</body>
+</html>
