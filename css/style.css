@@ -53,17 +53,12 @@ body {
     display: none;
 }
 
-#cancel-overlay {
+#cancel-img-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     z-index: 1000;
 }
 
@@ -71,17 +66,17 @@ body {
     width: 300px;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 20px;
 }
 
-#return {
+#close-cancel-img {
+    display: block;
+    margin: 10px auto;
     padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #e74c3c;
     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .spam-img {
@@ -111,6 +106,9 @@ body {
 #no:hover {
     background-color: #c0392b;
 }
+.hidden {
+    display: none;
+}
 
 .overlay {
     position: fixed;
@@ -131,6 +129,12 @@ body {
     text-align: center;
 }
 
+.spam-img {
+    position: absolute;
+    width: 300px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    z-index: 10;
+}
 .location-img {
     width: 100%;
     max-width: 300px;
@@ -148,4 +152,22 @@ body {
     margin: 20px auto; /* Centra la imagen horizontalmente */
     display: block; /* Asegura que el margen auto funcione */
     border-radius: 10px;
+}
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 24px;
+    animation: float 5s linear infinite;
+    pointer-events: none;
 }

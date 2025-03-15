@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
     const moveSound = document.getElementById('move-sound');
     const overlay = document.getElementById('click-to-enable-sound');
-    const cancelImg = document.getElementById('cancel-img');
+    const cancelImgContainer = document.getElementById('cancel-img-container'); // Cambia esta línea
+    const closeCancelImgButton = document.getElementById('close-cancel-img'); // Añade esta línea
 
     overlay.addEventListener('click', () => {
         overlay.style.display = 'none';
@@ -34,8 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     backButton.addEventListener('click', () => {
-        cancelImg.classList.remove('hidden'); // Muestra la imagen de cancelación
+        infoView.classList.add('hidden');
+        mainView.classList.remove('hidden');
+        cancelImgContainer.classList.remove('hidden'); // Cambia esta línea
     });
+
+    closeCancelImgButton.addEventListener('click', () => { // Añade esta línea
+        cancelImgContainer.classList.add('hidden'); // Añade esta línea
+    }); // Añade esta línea
 
     function createSpamImage() {
         const img = document.createElement('img');
@@ -87,4 +94,19 @@ document.addEventListener('DOMContentLoaded', () => {
             (imgRect.left < noRect.right && imgRect.right > noRect.left && imgRect.top < noRect.bottom && imgRect.bottom > noRect.top)
         );
     }
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.textContent = '❤️';
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 500);
 });
